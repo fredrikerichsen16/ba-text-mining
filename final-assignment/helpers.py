@@ -7,7 +7,10 @@ def replace_usernames(txt):
     return re.sub(r'(^|\s)@(\w+)', ' @user', txt, flags=re.MULTILINE)
 
 def preprocess_tweets(tweets):
-    output = [remove_urls(tweet) for tweet in tweets]
-    output = [replace_usernames(tweet) for tweet in output]
+    return [preprocess_tweet(tweet) for tweet in tweets]
 
-    return output
+def preprocess_tweet(tweet):
+    tweet = remove_urls(tweet)
+    tweet = replace_usernames(tweet)
+    
+    return tweet
