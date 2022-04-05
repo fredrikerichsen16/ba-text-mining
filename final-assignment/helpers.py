@@ -12,5 +12,6 @@ def preprocess_tweets(tweets):
 def preprocess_tweet(tweet):
     tweet = remove_urls(tweet)
     tweet = replace_usernames(tweet)
+    tweet = tweet.replace('\n', ' ')
     
     return tweet
